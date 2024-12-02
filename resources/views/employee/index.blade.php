@@ -31,6 +31,9 @@
         </div>
     </nav>
 
+    @extends('layouts.app')
+    @section('content')
+
     <div class="container mt-4">
         <div class="row mb-0">
             <div class="col-lg-9 col-xl-10">
@@ -62,6 +65,7 @@
                             <td>{{ $employee->lastname }}</td>
                             <td>{{ $employee->email }}</td>
                             <td>{{ $employee->age }}</td>
+<<<<<<< HEAD
                             <td>{{ $employee->position_name }}</td>
                             <td>
                                 <div class="d-flex">
@@ -70,6 +74,17 @@
 
                                     <div>
                                         <form action="{{ route('employees.destroy', ['employee' => $employee->employee_id]) }}" method="POST">
+=======
+                            <td>{{ $employee->position->name }}</td>
+                            <td>
+                                {{-- ACTIONS SECTION --}}
+                                <div class="d-flex">
+                                    <a href="{{ route('employees.show', ['employee' => $employee->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
+                                    <a href="{{ route('employees.edit', ['employee' => $employee->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
+
+                                    <div>
+                                        <form action="{{ route('employees.destroy', ['employee' => $employee->id]) }}" method="POST">
+>>>>>>> 7635fea (modul 14)
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i class="bi-trash"></i></button>
@@ -83,6 +98,8 @@
             </table>
         </div>
     </div>
+
+    @endsection
 
     @vite('resources/js/app.js')
 </body>
